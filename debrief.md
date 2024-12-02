@@ -36,6 +36,20 @@
 
    1.2 Dependency inversion: Passing the domain object around is a good start, but after refactoring, more of this will be needed.
 
+## Project architecture
+
+### Problem
+1. Scalability. I understand that this is an exercise, however, if this were production code, I would have some scalability issues I would try to refactor when possible.
+
+   1.1 Dealing with thousands of created/modified objects in a single threaded worker.
+
+   1.2 Making concurrent requests to Hubspot API.
+  
+### Solution
+1. Implement the processing and storing in a real query/message system. Kafka, RabbitMQ, SQS, etc.
+
+2. Separate customer concerns. Process every customer in a different process/thread/queue.
+
 # About the implementation tradeoffs
 
 When dealing with an existing codebase, I always try to follow a few good practices:
